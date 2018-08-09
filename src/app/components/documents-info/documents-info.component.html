@@ -1,0 +1,43 @@
+<ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-circus" ></ngx-spinner>
+
+<div class="container ">
+
+<h2 style="text-align: center;">Documents Information</h2>
+<hr/>
+
+List of Documents Attached:
+
+<form [formGroup]="documentsForm">
+    <ng-multiselect-dropdown
+        name="documents"
+        [placeholder]="'Select Uploaded Documents'"
+        [data]="documentsList"
+        formControlName="documents"
+        [settings]="dropdownSettings"
+        (onSelect)="onItemSelect()"
+        (onDeSelect)="onItemDeSelect()"
+        (onSelectAll)="onSelectAll()"
+      >
+    </ng-multiselect-dropdown>
+</form>
+<br>
+<hr>
+<p>Total Documents Uploaded: {{totalDocumentsSelected}}</p>
+<hr>
+<div class="col-sm-12">
+  <p style="color: red;"><b> Please Note: </b></p>
+  <ol>
+    <li>
+        All documents should be provided in to clear copy of original one and must be attested from a lawyer.
+    </li>
+    <li>
+        Each document should have 8 attested copy, if one wants to apply for more than 8 University then please prepare your documents accordingly. 
+    </li>
+    <li>
+        Note: (Write the documents that are missing from the above list, and you are going to submit in near future)
+    </li>
+  </ol>
+  <input type="textarea" class="form-control" [(ngModel)]="moreDocs"> <br>
+  <button type="button" class="btn btn-success" (click)="saveDocsData()"> Proceed</button>
+</div>
+</div>

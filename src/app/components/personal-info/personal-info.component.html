@@ -1,0 +1,177 @@
+
+<ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-circus" ></ngx-spinner>
+
+<div class="container ">
+
+  <h2 style="text-align: center;">Personal Information</h2>
+
+<form [formGroup] = "personalInfoForm" (submit) ="getFormValues()">
+  <div class="col-md-12">
+    <div class="row">
+<div class="col-md-6">
+  <div formGroupName = "name">
+    <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : personalInfoForm.controls.name.invalid && (personalInfoForm.controls.name.dirty || personalInfoForm.controls.name.touched),
+        'has-success' : personalInfoForm.controls.name.valid
+          }">
+      <label class="control-label" class="mandatory">First Name </label>
+      <input type="text" class="form-control" formControlName="firstName" placeholder="Enter first name">
+    </div>
+
+    <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : personalInfoForm.controls.name.invalid && (personalInfoForm.controls.name.dirty || personalInfoForm.controls.name.touched),
+        'has-success' : personalInfoForm.controls.name.valid
+          }">
+      <label class="control-label" class="mandatory">Middle Name </label>
+      <input type="text" class="form-control" formControlName="middleName" placeholder="Enter middle name">
+    </div>
+
+    <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : personalInfoForm.controls.name.invalid && (personalInfoForm.controls.name.dirty || personalInfoForm.controls.name.touched),
+        'has-success' : personalInfoForm.controls.name.valid
+          }">
+      <label class="control-label" class="mandatory">Last Name </label>
+      <input type="text" class="form-control" formControlName="lastName" placeholder="Enter last name">
+    </div>
+  </div>
+
+  <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : personalInfoForm.controls.gender.invalid && (personalInfoForm.controls.gender.dirty || personalInfoForm.controls.gender.touched),
+        'has-success' : personalInfoForm.controls.gender.valid
+          }">
+      <label class="control-label" class="mandatory">Gender </label>
+      <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="gender" style="margin-left: 10px;">
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="male"> Male
+        </label>
+        <label ngbButtonLabel class="btn-primary"  style="margin-left: 10px;">
+          <input ngbButton type="radio" value="female"> Female
+        </label>
+      </div>
+    </div>
+  
+  
+    <div class="col-md-12 form-group">
+    <label class="control-label" class="mandatory">Date of Birth </label>
+    <input type="date" ngbDatepicker
+    #d="ngbDatepicker" (click)="d.toggle()" [minDate]="{year: 1910, month: 7}" [maxDate]="now" class="form-control" formControlName="dateofbirth" placeholder="Enter Date of Birth">
+  </div>
+  
+  <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : personalInfoForm.controls.contactnumber.invalid && (personalInfoForm.controls.contactnumber.dirty || personalInfoForm.controls.contactnumber.touched),
+        'has-success' : personalInfoForm.controls.contactnumber.valid
+          }">
+      <label class="control-label" class="mandatory">Contact Number 1 </label>
+      <input type="number" class="form-control" formControlName="contactnumber" minlength="10" maxlength="10" placeholder="Enter contact number">
+  </div>
+
+  <div class="col-md-12 form-group">
+      <label class="control-label" >Contact Number 2</label>
+      <input type="number" class="form-control" formControlName="contactnumber2" minlength="10" maxlength="10" placeholder="Enter secondary contact number">
+  </div>
+  
+    <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : personalInfoForm.controls.emailAddress.invalid && (personalInfoForm.controls.emailAddress.dirty || personalInfoForm.controls.emailAddress.touched),
+        'has-success' : personalInfoForm.controls.emailAddress.valid
+          }">
+      <label class="control-label" class="mandatory">E-mail Address </label>
+      <input type="email" class="form-control" formControlName="emailAddress" placeholder="Enter email">
+  </div>
+</div>
+<div class="col-md-6">
+  <div formGroupName = "address">
+    <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : personalInfoForm.controls.address.invalid && (personalInfoForm.controls.address.dirty || personalInfoForm.controls.address.touched),
+        'has-success' : personalInfoForm.controls.address.valid
+          }">
+      <label class="control-label" class="mandatory">House Number </label>
+      <input type="number"  class="form-control" formControlName="houseNo" placeholder="Enter house number">
+  </div>
+
+  <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : personalInfoForm.controls.address.invalid && (personalInfoForm.controls.address.dirty || personalInfoForm.controls.address.touched),
+        'has-success' : personalInfoForm.controls.address.valid
+          }">
+      <label class="control-label" class="mandatory">Street </label>
+      <input type="text"  class="form-control" formControlName="street" placeholder="Enter street name">
+  </div>
+
+  <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : personalInfoForm.controls.address.invalid && (personalInfoForm.controls.address.dirty || personalInfoForm.controls.address.touched),
+        'has-success' : personalInfoForm.controls.address.valid
+          }">
+      <label class="control-label">Landmark </label>
+      <input type="text"  class="form-control" formControlName="landmark" placeholder="Enter landmark">
+  </div>
+
+  <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : personalInfoForm.controls.address.invalid && (personalInfoForm.controls.address.dirty || personalInfoForm.controls.address.touched),
+        'has-success' : personalInfoForm.controls.address.valid
+          }">
+      <label class="control-label" class="mandatory">Pin Code</label>
+      <input type="text"  class="form-control" formControlName="pincode" placeholder="Enter pin code">
+  </div>
+
+  <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : personalInfoForm.controls.address.invalid && (personalInfoForm.controls.address.dirty || personalInfoForm.controls.address.touched),
+        'has-success' : personalInfoForm.controls.address.valid
+          }">
+      <label class="control-label" class="mandatory">City </label>
+      <input type="text"  class="form-control" formControlName="city" placeholder="Enter city">
+  </div>
+
+
+  <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : personalInfoForm.controls.address.invalid && (personalInfoForm.controls.address.dirty || personalInfoForm.controls.address.touched),
+        'has-success' : personalInfoForm.controls.address.valid
+          }">
+      <label class="control-label" class="mandatory">State </label>
+      <input type="text"  class="form-control" formControlName="state" placeholder="Enter state">
+  </div>
+
+
+  <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : personalInfoForm.controls.address.invalid && (personalInfoForm.controls.address.dirty || personalInfoForm.controls.address.touched),
+        'has-success' : personalInfoForm.controls.address.valid
+          }">
+      <label class="control-label" class="mandatory">Country </label>
+      <input type="text"  class="form-control" formControlName="country" placeholder="Enter country">
+  </div>
+  </div>
+</div>
+</div>
+
+  
+<div class="row">
+  <div class="col-xs-6">
+    <button type="submit" class="btn btn-success" [disabled]="!personalInfoForm.valid" [ngClass] = "{
+      'disabled' : !personalInfoForm.valid,
+      'valid' : personalInfoForm.valid
+    }">Proceed</button>
+  </div>
+  <div class="col-xs-6" style="margin-left: 10px;">
+    <button type="reset" class="btn btn-danger" (click) = "resetForm()"> Reset</button>
+  </div>
+</div>
+  
+</div>
+
+</form>
+
+</div>
+
+
+

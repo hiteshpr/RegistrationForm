@@ -1,0 +1,47 @@
+<ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-circus" ></ngx-spinner>
+
+<div class="container ">
+
+  <h2 style="text-align: center;">Service Information</h2>
+  <hr/>
+  <div class="col-md-8" >
+      
+      <h4> Please mark the service you want to avail:  </h4>
+      
+     <form [formGroup]="servicesForm">
+          <ng-multiselect-dropdown
+              name="services"
+              [placeholder]="'Select Services'"
+              [data]="servicesOffered"
+              formControlName="services"
+              [settings]="dropdownSettings"
+              (onSelect)="onItemSelect('individual')"
+              (onDeSelect)="onItemDeSelect()"
+              (onSelectAll)="onSelectAll('individual')"
+            >
+          </ng-multiselect-dropdown>
+     </form>
+<br>
+     <h4> Or, choose our combi saving service:  </h4>
+      
+     <form [formGroup]="comboservicesForm">
+          <ng-multiselect-dropdown
+              name="comboservices"
+              [placeholder]="'Select Combo Services'"
+              [data]="comboservicesOffered"
+              formControlName="comboservices"
+              [settings]="dropdownSettings"
+              (onSelect)="onItemSelect('combo')"
+              (onSelectAll)="onSelectAll('combo')"
+            >
+          </ng-multiselect-dropdown>
+     </form>
+    <br>
+    <hr>
+    <p>Total service selected : {{totalServiceSelected}}</p>
+     <hr>
+
+     <button type="button" class="btn btn-success" (click)= "saveServices()">Proceed</button>
+  </div >
+
+</div>

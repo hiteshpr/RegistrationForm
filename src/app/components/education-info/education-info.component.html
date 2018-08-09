@@ -1,0 +1,102 @@
+
+
+<ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-circus" ></ngx-spinner>
+
+<div class="container ">
+
+    <h2 style="text-align: center;">Education Information</h2>
+
+  <form [formGroup] = "educationInfoForm" (submit) ="getFormValues()">
+
+    <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : educationInfoForm.controls.collegeName.invalid && (educationInfoForm.controls.collegeName.dirty || educationInfoForm.controls.collegeName.touched),
+        'has-success' : educationInfoForm.controls.collegeName.valid
+          }">
+      <label class="control-label" class="mandatory">College Name </label>
+      <input type="text" class="form-control" formControlName="collegeName" placeholder="Enter college name">
+    </div>
+
+    <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : educationInfoForm.controls.univName.invalid && (educationInfoForm.controls.univName.dirty || educationInfoForm.controls.univName.touched),
+        'has-success' : educationInfoForm.controls.univName.valid
+          }">
+      <label class="control-label" class="mandatory">University Name </label>
+      <input type="text" class="form-control" formControlName="univName" placeholder="Enter university name">
+    </div>
+
+    <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : educationInfoForm.controls.branch.invalid && (educationInfoForm.controls.branch.dirty || educationInfoForm.controls.branch.touched),
+        'has-success' : educationInfoForm.controls.branch.valid
+          }">
+      <label class="control-label" class="mandatory">Branch </label>
+      <input type="text" class="form-control" formControlName="branch" placeholder="Enter branch">
+    </div>
+
+    <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : educationInfoForm.controls.yrofPassing.invalid && (educationInfoForm.controls.yrofPassing.dirty || educationInfoForm.controls.yrofPassing.touched),
+        'has-success' : educationInfoForm.controls.yrofPassing.valid
+          }">
+      <label class="control-label" class="mandatory">Year of Passing </label>
+      <input type="text" class="form-control" formControlName="yrofPassing" placeholder="Enter year of passing">
+    </div>
+
+    <div class="col-md-12 form-group" 
+    [ngClass] = "{
+      'has-error' : educationInfoForm.controls.intField.invalid && (educationInfoForm.controls.intField.dirty || educationInfoForm.controls.intField.touched),
+      'has-success' : educationInfoForm.controls.intField.valid
+        }">
+    <label class="control-label" class="mandatory">Intrested Field to apply for further education </label>
+    <input type="text" class="form-control" formControlName="intField" placeholder="Enter initrested field">
+  </div>
+
+  <div class="col-md-12 form-group" 
+    [ngClass] = "{
+      'has-error' : educationInfoForm.controls.semester.invalid && (educationInfoForm.controls.semester.dirty || educationInfoForm.controls.semester.touched),
+       'has-success' : educationInfoForm.controls.semester.valid
+       }">
+    <label class="control-label" class="mandatory">Which semester </label>
+      <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="semester" style="margin-left: 10px;">
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="winter"> Winter
+        </label>
+        <label ngbButtonLabel class="btn-primary"  style="margin-left: 10px;">
+          <input ngbButton type="radio" value="summer"> Summer
+        </label>
+      </div>
+  </div>
+
+
+  <div class="col-md-12 form-group">
+    <label class="control-label" class="mandatory">Preferred Country to apply </label>
+
+      <ng-multiselect-dropdown
+            name="Country"
+            [placeholder]="'Select Country'"
+            [data]="countries"
+            [settings]="dropdownSettings"
+            formControlName="prefCountry">
+        </ng-multiselect-dropdown>
+
+  </div>
+
+  <div class="row">
+      <div class="col-xs-6">
+        <button type="submit" class="btn btn-success" [disabled]="!educationInfoForm.valid" [ngClass] = "{
+          'disabled' : !educationInfoForm.valid,
+          'valid' : educationInfoForm.valid
+        }">Proceed</button>
+      </div>
+      <div class="col-xs-6" style="margin-left: 10px;">
+        <button type="reset" class="btn btn-danger" (click) = "resetForm()"> Reset</button>
+      </div>
+    </div>
+
+    
+  
+</form>
+
+</div>

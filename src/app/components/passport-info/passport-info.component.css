@@ -1,0 +1,10 @@
+.mandatory::after{
+    content: '\002A';
+    color: red;
+
+}
+
+.disabled {
+    cursor: not-allowed
+}
+

@@ -1,0 +1,118 @@
+<ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-circus" ></ngx-spinner>
+
+<div class="container ">
+
+    <h2 style="text-align: center;">Passport Information</h2>
+      
+  <div class="col-md-6" *ngIf="model === 'default'">
+    <hr>
+    <h4> Do you have a Passport?  </h4>
+    <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="model">
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="havePassport"> Yes
+        </label>
+        <label ngbButtonLabel class="btn-primary" style="margin-left: 10px;">
+          <input ngbButton type="radio" value="noPassport"> No
+        </label>
+    </div>
+  </div>
+  
+  <hr/>
+  
+  <div *ngIf="model === 'havePassport'">
+    
+    <form [formGroup] ="passportDetailsForm" (submit) ="showDisability()">
+
+      <div class="col-md-12 form-group" 
+        [ngClass] = "{
+          'has-error' : passportDetailsForm.controls.passNumber.invalid && (passportDetailsForm.controls.passNumber.dirty || passportDetailsForm.controls.passNumber.touched),
+          'has-success' : passportDetailsForm.controls.passNumber.valid
+            }">
+        <label class="control-label" class="mandatory">Passport Number </label>
+        <input type="number" class="form-control" formControlName="passNumber" placeholder="Enter passport number">
+      </div>
+
+      <div class="col-md-12 form-group" 
+        [ngClass] = "{
+          'has-error' : passportDetailsForm.controls.dateofIssue.invalid && (passportDetailsForm.controls.dateofIssue.dirty || passportDetailsForm.controls.dateofIssue.touched),
+          'has-success' : passportDetailsForm.controls.dateofIssue.valid
+            }">
+        <label class="control-label" class="mandatory">Date of Issue </label>
+        <input type="date" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" [minDate]="{year: 1910, month: 7}" [maxDate]="now" class="form-control" formControlName="dateofIssue" placeholder="Enter date of issue">
+      </div>
+    
+      <div class="col-md-12 form-group" 
+        [ngClass] = "{
+          'has-error' : passportDetailsForm.controls.dateofExpiry.invalid && (passportDetailsForm.controls.dateofExpiry.dirty || passportDetailsForm.controls.dateofExpiry.touched),
+          'has-success' : passportDetailsForm.controls.dateofExpiry.valid
+            }">
+        <label class="control-label" class="mandatory">Date of Expiry </label>
+        <input type="date" ngbDatepicker #e="ngbDatepicker" (click)="e.toggle()" [minDate]="{year: 1910, month: 7}" [maxDate]="now" class="form-control" formControlName="dateofExpiry" placeholder="Enter date of expiry">
+      </div>
+
+      <div class="row">
+          <div class="col-xs-6">
+            <button type="submit" class="btn btn-success" [disabled]="!passportDetailsForm.valid" [ngClass] = "{
+              'disabled' : !passportDetailsForm.valid,
+              'valid' : passportDetailsForm.valid
+            }">Proceed</button>
+          </div>
+          <div class="col-xs-6" style="margin-left: 10px;">
+            <button type="reset" class="btn btn-danger" (click) = "resetForm('passportDetailsForm')"> Reset</button>
+          </div>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf = "model === 'noPassport'">
+  
+    <p style="color: red;"> Contact our institute to help you out with the Passport Application. </p>
+    <br>
+    <button type="button" class="btn btn-success" (click) = "showDisability()"> Proceed </button>
+    <hr>
+  </div>
+
+  
+
+  <div *ngIf = "model === 'showDisabilityForm'">
+
+  <div class="col-md-6">
+    <p > Do you have any Disability ? </p>
+
+    <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="disability">
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="yes"> Yes
+        </label>
+        <label ngbButtonLabel class="btn-primary" style="margin-left: 10px;">
+          <input ngbButton type="radio" value ="no"> No
+        </label>
+    </div>
+    <br>
+    <div *ngIf = "disability === 'yes'" style="margin-top: 10px">
+      <label class="control-label"> Please Describe :</label> <br>
+      <input type = "textarea" cols =5 class="form-control" rows=5 [(ngModel)] = "disabilityDes">
+    </div>
+    <br>
+    <button type="button" class="btn btn-success" (click) = "submitDisability()"> Proceed </button>
+    
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
