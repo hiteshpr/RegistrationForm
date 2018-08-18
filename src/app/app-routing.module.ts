@@ -6,6 +6,7 @@ import { EducationInfoComponent } from './components/education-info/education-in
 import { ServiceInfoComponent } from './components/service-info/service-info.component';
 import { DocumentsInfoComponent } from './components/documents-info/documents-info.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
 
 const routes: Routes = [
     { 
@@ -28,6 +29,9 @@ const routes: Routes = [
     },
     {
       path : 'documentsInfo', component: DocumentsInfoComponent
+    },
+    {
+      path : 'register', component: SignupComponent
     },
 ];
 
