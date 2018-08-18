@@ -9,5 +9,5 @@ import { LoginService } from './services/login.service';
 export class AppComponent {
   
   isCollapsed = false;
-  constructor(private login:LoginService){}
+  constructor(public login:LoginService){}
 }
