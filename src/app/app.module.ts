@@ -14,6 +14,10 @@ import { PassportInfoComponent } from './components/passport-info/passport-info.
 import { EducationInfoComponent } from './components/education-info/education-info.component';
 import { ServiceInfoComponent } from './components/service-info/service-info.component';
 import { DocumentsInfoComponent } from './components/documents-info/documents-info.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { LoginService } from './services/login.service';
+import { SignupComponent } from './components/auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,10 @@ import { DocumentsInfoComponent } from './components/documents-info/documents-in
     PassportInfoComponent,
     EducationInfoComponent,
     ServiceInfoComponent,
-    DocumentsInfoComponent
+    DocumentsInfoComponent,
+    AuthComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,7 @@ import { DocumentsInfoComponent } from './components/documents-info/documents-in
     BrowserAnimationsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -25,6 +25,7 @@
     "ng-multiselect-dropdown": "^0.2.0",
     "ngx-spinner": "^6.1.2",
     "rxjs": "^6.0.0",
+    "ts-md5": "^1.2.4",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

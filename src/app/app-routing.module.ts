@@ -5,10 +5,14 @@ import { PassportInfoComponent } from './components/passport-info/passport-info.
 import { EducationInfoComponent } from './components/education-info/education-info.component';
 import { ServiceInfoComponent } from './components/service-info/service-info.component';
 import { DocumentsInfoComponent } from './components/documents-info/documents-info.component';
+import { LoginComponent } from './components/auth/login/login.component';
 
 const routes: Routes = [
     { 
-      path:'', redirectTo: 'personalInfo' , pathMatch: 'full'
+      path:'', redirectTo: 'login' , pathMatch: 'full'
+    },
+    {
+      path: 'login', component:LoginComponent
     },
     { 
       path:'personalInfo', component: PersonalInfoComponent 

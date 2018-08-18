@@ -1,0 +1,26 @@
+@media only screen and (min-width: 768px) {
+    .form-class {
+        margin-top: 229px;
+    }
+
+    .border-class{
+        border-right: thick solid #000000;
+    }
+} 
+
+.mandatory::after{
+    content: '\002A';
+    color: red;
+
+}
+
+.disabled {
+    cursor: not-allowed
+}
+
+.show-pass {
+    position: absolute;
+    top: 41px;
+    right: 25px;
+    cursor: pointer;
+  }

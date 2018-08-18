@@ -1,3 +1,7 @@
+
+<router-outlet *ngIf="!this.login.state"></router-outlet>
+
+<section *ngIf="this.login.state">
 <div class="jumbotron" style="margin-bottom: 0px;">
   <div class="container">
     <h2 style="text-align: center;">TEA Registration Form</h2>
@@ -32,5 +36,5 @@
   </nav>
 <br>
 <router-outlet></router-outlet>
-
+</section>
 

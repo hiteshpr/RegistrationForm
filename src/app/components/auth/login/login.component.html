@@ -1,0 +1,42 @@
+<ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "ball-circus" ></ngx-spinner>
+
+<div class="container">
+  <div class="row">
+   <div class="col-sm-6 form-class border-class">
+        <img src="../../../../assets/logo.png" class="img img-responsive" style="width: 120%">
+    </div>
+    <div class="col-sm-6 form-class" style="display: flex;">
+      <form [formGroup]="loginForm" (submit)="getFormValue()" style="width: 100%  ;margin: auto;">
+
+        <div class="col-md-12 form-group" 
+          [ngClass] = "{
+            'has-error' : loginForm.controls.email.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched),
+            'has-success' : loginForm.controls.email.valid
+              }">
+          <label class="control-label" class="mandatory">Email </label>
+          <input type="email" class="form-control" formControlName="email" placeholder="Enter your email">
+        </div>
+        
+        <div class="col-md-12 form-group">
+          <label class="control-label" class="mandatory">Password </label>
+          <input [attr.type]="passwordType"  class="form-control" formControlName="password" placeholder="Enter your password">
+          <i class="show-pass fa fa-eye fa-lg" (click)="showPassword()"></i>
+        </div>
+
+        <div class="col-md-12" style="text-align: center;">
+        <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid" [ngClass] = "{
+            'disabled' : !loginForm.valid,
+            'valid' : loginForm.valid
+          }">Login</button>
+        </div>
+        <hr>
+        <div class="col-sm-12" style="text-align: center;">
+            <span>Don't have an account yet?</span>
+           <button type="button" class="btn btn-warning" routerLink="/signup" style="margin-left: 10px;">Register Now</button> 
+        </div>
+     
+     </form>
+     
+    </div>
+  </div>
+</div>
