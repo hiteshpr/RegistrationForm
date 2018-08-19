@@ -22,9 +22,9 @@ export class SignupComponent implements OnInit {
       Validators.required,
       Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$')
     ]),
-    name : new FormControl('', [Validators.required]),
+    firstName : new FormControl('', [Validators.required]),
     phoneNumber: new FormControl('', [ Validators.required]),
-    city: new FormControl('', [Validators.required])
+    lastName: new FormControl('', [Validators.required])
   })
 
   constructor(private router : Router, private spinner: NgxSpinnerService,private modalService: NgbModal, private rd: Renderer2) { }

@@ -11,9 +11,15 @@
         
 
         <div class="col-md-12 form-group">
-            <label class="control-label" class="mandatory">Full Name </label>
-            <input type="text"  class="form-control" formControlName="name" placeholder="Enter your full name">
-          </div>
+            <label class="control-label" class="mandatory">First Name </label>
+            <input type="text"  class="form-control" formControlName="firstName" placeholder="Enter your first name">
+        </div>
+
+        
+        <div class="col-md-12 form-group">
+              <label class="control-label" class="mandatory">Last Name </label>
+              <input type="text"  class="form-control" formControlName="lastName" placeholder="Enter your last name">
+        </div>
 
         <div class="col-md-12 form-group" 
           [ngClass] = "{
@@ -30,10 +36,6 @@
             <input type="text"  class="form-control" formControlName="phoneNumber" placeholder="Enter your contact number">
         </div>
 
-        <div class="col-md-12 form-group">
-              <label class="control-label" class="mandatory">City </label>
-              <input type="text"  class="form-control" formControlName="city" placeholder="Enter your current city">
-        </div>
     
         <div class="col-md-12" style="text-align: center;">
         <button type="submit" class="btn btn-success" [disabled]="!signUpForm.valid" [ngClass] = "{
