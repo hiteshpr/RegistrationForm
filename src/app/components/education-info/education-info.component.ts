@@ -75,6 +75,11 @@ export class EducationInfoComponent implements OnInit {
   }
 
   getAllValues(){
+
+    this.getugFormValues();
+    this.getpgFormValues();
+    this.getFurtherFormValues();
+
     this.spinner.show();
  
     setTimeout(() => {
