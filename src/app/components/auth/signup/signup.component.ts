@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { NgxSpinnerService } from 'ngx-spinner';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ElementRef,Renderer2} from '@angular/core';
-
+import { RestService } from './../../../services/rest.service';
 
 @Component({
   selector: 'app-signup',
@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
     lastName: new FormControl('', [Validators.required])
   })
 
-  constructor(private router : Router, private spinner: NgxSpinnerService,private modalService: NgbModal, private rd: Renderer2) { }
+  constructor(private router : Router, private spinner: NgxSpinnerService,private modalService: NgbModal, private rd: Renderer2, private rest: RestService) { }
 
   ngOnInit() {
   }
@@ -36,14 +36,16 @@ export class SignupComponent implements OnInit {
 
     console.log(this.signUpForm.value);
 
-    this.spinner.show();
-    
-    setTimeout(() => {
-      
-        this.spinner.hide();
-        this.open(this.el);
-    }, 5000);
+    const data = {"fName": this.signUpForm.value.firstName, "lName": this.signUpForm.value.lastName, "email": this.signUpForm.value.email, "mobile": this.signUpForm.value.phoneNumber } ;
 
+    console.log(data);
+
+    this.rest.registerUser(data).subscribe((data) => {
+      console.log('success', data);
+    },
+    (data) => {
+      console.log('error', data);
+    });
     
 
   }
