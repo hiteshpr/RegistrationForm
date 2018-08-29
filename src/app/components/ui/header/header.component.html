@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 12vh;">
+  <a routerLink="/" class="navbar-brand">
+    <img src="../../../../assets/logo2.png" [attr.alt]="title" width="30" height="30">
+    {{title}}
+  </a>
+
+  <button class="navbar-toggler" type="button"
+          (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse"
+       [ngClass]="{ 'show': navbarOpen }">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="personalInfo">Personal Details <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="passportInfo">Passport Details</a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="educationInfo">Education Details</a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="serviceInfo">Service Details</a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="documentsInfo">Document Details</a>
+      </li>
+
+
+    </ul>
+  </div>
+</nav>

@@ -11,11 +11,24 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class EducationInfoComponent implements OnInit {
 
-  educationInfoForm = new FormGroup ({
+  model = 'default';
+
+  ugEducationInfoForm = new FormGroup ({
     collegeName : new FormControl('',[Validators.required]),
     univName : new FormControl('',[Validators.required]),
     branch: new FormControl('',[Validators.required]),
     yrofPassing : new FormControl('',[Validators.required]),
+    
+  })
+
+  pgEducationInfoForm = new FormGroup ({
+    collegeName : new FormControl('',[Validators.required]),
+    univName : new FormControl('',[Validators.required]),
+    branch: new FormControl('',[Validators.required]),
+    yrofPassing : new FormControl('',[Validators.required])
+  })
+
+  furtherEducationInfoForm = new FormGroup ({
     intField : new FormControl('',[Validators.required]),
     semester : new FormControl('',[Validators.required]),
     prefCountry : new FormControl('',[Validators.required])
@@ -47,19 +60,30 @@ export class EducationInfoComponent implements OnInit {
   };
   }
 
-  getFormValues(){
-    console.log(this.educationInfoForm.value);
+  getugFormValues(){
+    console.log(this.ugEducationInfoForm.value);
+  }
 
+  getpgFormValues(){
+    console.log(this.pgEducationInfoForm.value);
+    
+  }
+
+  getFurtherFormValues(){
+    console.log(this.ugEducationInfoForm.value);
+
+  }
+
+  getAllValues(){
     this.spinner.show();
  
     setTimeout(() => {
         this.spinner.hide();
         this.router.navigate(['/serviceInfo']);
     }, 3000);
-    
   }
 
   resetForm(){
-    this.educationInfoForm.reset();
+    this.ugEducationInfoForm.reset();
   }
 }
