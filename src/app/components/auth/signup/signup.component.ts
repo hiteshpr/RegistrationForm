@@ -16,7 +16,8 @@ export class SignupComponent implements OnInit {
   @ViewChild('content') el:ElementRef;
 
   closeResult: string;
-  
+  public error;
+
   signUpForm = new FormGroup({
     email : new FormControl('',[
       Validators.required,
@@ -39,11 +40,13 @@ export class SignupComponent implements OnInit {
     const data = {"fName": this.signUpForm.value.firstName, "lName": this.signUpForm.value.lastName, "email": this.signUpForm.value.email, "mobile": this.signUpForm.value.phoneNumber } ;
 
     console.log(data);
-
+    
     this.rest.registerUser(data).subscribe((data) => {
       console.log('success', data);
+      this.open(this.el);
     },
     (data) => {
+      this.error = data.msg;
       console.log('error', data);
     });
     
@@ -51,6 +54,7 @@ export class SignupComponent implements OnInit {
   }
 
   open(content) {
+    console.log(content);
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
   }
 

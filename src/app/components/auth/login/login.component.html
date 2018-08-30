@@ -27,7 +27,7 @@
         <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid" [ngClass] = "{
             'disabled' : !loginForm.valid,
             'valid' : loginForm.valid
-          }">Login</button>
+          }">Login</button> <p>{{error}}</p>
         </div>
         <hr>
         <div class="col-sm-12" style="text-align: center;">

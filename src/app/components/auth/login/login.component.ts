@@ -14,6 +14,7 @@ import { RestService } from './../../../services/rest.service';
 export class LoginComponent implements OnInit {
 
   passwordType = 'password';
+  public error;
 
   loginForm = new FormGroup({
     email : new FormControl('',[
@@ -29,15 +30,23 @@ export class LoginComponent implements OnInit {
   }
 
   getFormValue(){
+
+    this.spinner.show();
   
     const data = {"loginId": this.loginForm.value.email, "password": this.loginForm.value.password } ;
     
     console.log(data);
 
     this.rest.loginUser(data).subscribe((data) => {
+    
       console.log('success', data);
+      this.spinner.hide();
+      this.router.navigate(['/personalInfo']);
+
     },
     (data) => {
+      this.spinner.hide();
+      this.error = data.msg;
       console.log('error', data);
     }); 
 

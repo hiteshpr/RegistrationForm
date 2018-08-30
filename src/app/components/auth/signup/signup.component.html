@@ -41,7 +41,7 @@
         <button type="submit" class="btn btn-success" [disabled]="!signUpForm.valid" [ngClass] = "{
             'disabled' : !signUpForm.valid,
             'valid' : signUpForm.valid
-          }">Register</button>
+          }">Register</button> <p>{{error}}</p>
         </div>
        
      </form>
