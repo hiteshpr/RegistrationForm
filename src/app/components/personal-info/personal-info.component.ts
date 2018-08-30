@@ -10,7 +10,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class PersonalInfoComponent implements OnInit {
 
-  
+  cities = [];
+  dropdownSettings = {};
 
   personalInfoForm = new FormGroup ({
     
@@ -77,6 +78,22 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.cities = [
+      { item_id: 1, item_text: 'United States' },
+      { item_id: 2, item_text: 'United Kingdom' },
+      { item_id: 3, item_text: 'Germany' },
+      { item_id: 4, item_text: 'Australia' },
+      { item_id: 5, item_text: 'Italy' },
+      { item_id: 6, item_text: 'Spain' }
+  ];
+  
+  this.dropdownSettings = {
+    singleSelection: true,
+    idField: 'item_id',
+    textField: 'item_text',
+    allowSearchFilter: true
+  };
+
   }
 
 

@@ -6,12 +6,13 @@
 
     <h2 style="text-align: center;">Education Information</h2>
 
-  <form [formGroup] = "educationInfoForm" (submit) ="getFormValues()">
+  <form [formGroup] = "ugEducationInfoForm" (submit) ="getugFormValues()">
 
+    <h4> Undergraduate Details</h4>
     <div class="col-md-12 form-group" 
       [ngClass] = "{
-        'has-error' : educationInfoForm.controls.collegeName.invalid && (educationInfoForm.controls.collegeName.dirty || educationInfoForm.controls.collegeName.touched),
-        'has-success' : educationInfoForm.controls.collegeName.valid
+        'has-error' : ugEducationInfoForm.controls.collegeName.invalid && (ugEducationInfoForm.controls.collegeName.dirty || ugEducationInfoForm.controls.collegeName.touched),
+        'has-success' : ugEducationInfoForm.controls.collegeName.valid
           }">
       <label class="control-label" class="mandatory">College Name </label>
       <input type="text" class="form-control" formControlName="collegeName" placeholder="Enter college name">
@@ -19,35 +20,105 @@
 
     <div class="col-md-12 form-group" 
       [ngClass] = "{
-        'has-error' : educationInfoForm.controls.univName.invalid && (educationInfoForm.controls.univName.dirty || educationInfoForm.controls.univName.touched),
-        'has-success' : educationInfoForm.controls.univName.valid
+        'has-error' : ugEducationInfoForm.controls.univName.invalid && (ugEducationInfoForm.controls.univName.dirty || ugEducationInfoForm.controls.univName.touched),
+        'has-success' : ugEducationInfoForm.controls.univName.valid
           }">
       <label class="control-label" class="mandatory">University Name </label>
       <input type="text" class="form-control" formControlName="univName" placeholder="Enter university name">
     </div>
 
-    <div class="col-md-12 form-group" 
+  <div class="row col-md-12" style="padding-right: 0px;">
+    <div class="col-md-6 form-group" 
       [ngClass] = "{
-        'has-error' : educationInfoForm.controls.branch.invalid && (educationInfoForm.controls.branch.dirty || educationInfoForm.controls.branch.touched),
-        'has-success' : educationInfoForm.controls.branch.valid
+        'has-error' : ugEducationInfoForm.controls.branch.invalid && (ugEducationInfoForm.controls.branch.dirty || ugEducationInfoForm.controls.branch.touched),
+        'has-success' : ugEducationInfoForm.controls.branch.valid
           }">
       <label class="control-label" class="mandatory">Branch </label>
       <input type="text" class="form-control" formControlName="branch" placeholder="Enter branch">
     </div>
 
-    <div class="col-md-12 form-group" 
+    
+    <div class="col-md-6 form-group" 
       [ngClass] = "{
-        'has-error' : educationInfoForm.controls.yrofPassing.invalid && (educationInfoForm.controls.yrofPassing.dirty || educationInfoForm.controls.yrofPassing.touched),
-        'has-success' : educationInfoForm.controls.yrofPassing.valid
+        'has-error' : ugEducationInfoForm.controls.yrofPassing.invalid && (ugEducationInfoForm.controls.yrofPassing.dirty || ugEducationInfoForm.controls.yrofPassing.touched),
+        'has-success' : ugEducationInfoForm.controls.yrofPassing.valid
           }">
       <label class="control-label" class="mandatory">Year of Passing </label>
       <input type="text" class="form-control" formControlName="yrofPassing" placeholder="Enter year of passing">
     </div>
+  </div>
+
+  </form>
+  <hr>
+  <div class="row">
+    <h4> Have you done Post Graduation?</h4>
+
+    <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="model" style="margin-left: 20px;">
+      <label ngbButtonLabel class="btn-primary">
+        <input ngbButton type="radio" value="havePg"> Yes
+      </label>
+      <label ngbButtonLabel class="btn-primary" style="margin-left: 10px;">
+        <input ngbButton type="radio" value="noPg"> No
+      </label>
+    </div>
+  </div>
+
+<hr>
+  <div *ngIf="model === 'havePg'">
+    <h4> Postgraduation Details </h4>
+
+    <form [formGroup] = "pgEducationInfoForm" (submit) ="getpgFormValues()">
+
+          
+      <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : pgEducationInfoForm.controls.collegeName.invalid && (pgEducationInfoForm.controls.collegeName.dirty || pgEducationInfoForm.controls.collegeName.touched),
+        'has-success' : pgEducationInfoForm.controls.collegeName.valid
+          }">
+      <label class="control-label" class="mandatory">College Name </label>
+      <input type="text" class="form-control" formControlName="collegeName" placeholder="Enter college name">
+    </div>
 
     <div class="col-md-12 form-group" 
+      [ngClass] = "{
+        'has-error' : pgEducationInfoForm.controls.univName.invalid && (pgEducationInfoForm.controls.univName.dirty || pgEducationInfoForm.controls.univName.touched),
+        'has-success' : pgEducationInfoForm.controls.univName.valid
+          }">
+      <label class="control-label" class="mandatory">University Name </label>
+      <input type="text" class="form-control" formControlName="univName" placeholder="Enter university name">
+    </div>
+
+  <div class="row col-md-12" style="padding-right: 0px;">
+    <div class="col-md-6 form-group" 
+      [ngClass] = "{
+        'has-error' : pgEducationInfoForm.controls.branch.invalid && (pgEducationInfoForm.controls.branch.dirty || pgEducationInfoForm.controls.branch.touched),
+        'has-success' : pgEducationInfoForm.controls.branch.valid
+          }">
+      <label class="control-label" class="mandatory">Branch </label>
+      <input type="text" class="form-control" formControlName="branch" placeholder="Enter branch">
+    </div>
+
+    
+    <div class="col-md-6 form-group" 
+      [ngClass] = "{
+        'has-error' : pgEducationInfoForm.controls.yrofPassing.invalid && (pgEducationInfoForm.controls.yrofPassing.dirty || pgEducationInfoForm.controls.yrofPassing.touched),
+        'has-success' : pgEducationInfoForm.controls.yrofPassing.valid
+          }">
+      <label class="control-label" class="mandatory">Year of Passing </label>
+      <input type="text" class="form-control" formControlName="yrofPassing" placeholder="Enter year of passing">
+    </div>
+  </div>
+  </form>
+
+</div>
+<hr>
+<h4>Future Education Plans</h4>
+<form [formGroup] = "furtherEducationInfoForm" (submit) ="getFurtherFormValues()">
+
+  <div class="col-md-12 form-group" 
     [ngClass] = "{
-      'has-error' : educationInfoForm.controls.intField.invalid && (educationInfoForm.controls.intField.dirty || educationInfoForm.controls.intField.touched),
-      'has-success' : educationInfoForm.controls.intField.valid
+      'has-error' : furtherEducationInfoForm.controls.intField.invalid && (furtherEducationInfoForm.controls.intField.dirty || furtherEducationInfoForm.controls.intField.touched),
+      'has-success' : furtherEducationInfoForm.controls.intField.valid
         }">
     <label class="control-label" class="mandatory">Intrested Field to apply for further education </label>
     <input type="text" class="form-control" formControlName="intField" placeholder="Enter initrested field">
@@ -55,8 +126,8 @@
 
   <div class="col-md-12 form-group" 
     [ngClass] = "{
-      'has-error' : educationInfoForm.controls.semester.invalid && (educationInfoForm.controls.semester.dirty || educationInfoForm.controls.semester.touched),
-       'has-success' : educationInfoForm.controls.semester.valid
+      'has-error' : furtherEducationInfoForm.controls.semester.invalid && (furtherEducationInfoForm.controls.semester.dirty || furtherEducationInfoForm.controls.semester.touched),
+       'has-success' : furtherEducationInfoForm.controls.semester.valid
        }">
     <label class="control-label" class="mandatory">Which semester </label>
       <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="semester" style="margin-left: 10px;">
@@ -85,18 +156,12 @@
 
   <div class="row">
       <div class="col-xs-6">
-        <button type="submit" class="btn btn-success" [disabled]="!educationInfoForm.valid" [ngClass] = "{
-          'disabled' : !educationInfoForm.valid,
-          'valid' : educationInfoForm.valid
-        }">Proceed</button>
+        <button type="button" (click)="getAllValues()" class="btn btn-success">Proceed</button>
       </div>
       <div class="col-xs-6" style="margin-left: 10px;">
         <button type="reset" class="btn btn-danger" (click) = "resetForm()"> Reset</button>
       </div>
-    </div>
-
-    
-  
-</form>
+    </div>  
+</form> 
 
 </div>

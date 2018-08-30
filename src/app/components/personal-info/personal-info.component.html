@@ -118,8 +118,15 @@
         'has-error' : personalInfoForm.controls.address.invalid && (personalInfoForm.controls.address.dirty || personalInfoForm.controls.address.touched),
         'has-success' : personalInfoForm.controls.address.valid
           }">
-      <label class="control-label" class="mandatory">Pin Code</label>
-      <input type="text"  class="form-control" formControlName="pincode" placeholder="Enter pin code">
+      <label class="control-label" class="mandatory">City </label>
+
+      <ng-multiselect-dropdown
+            name="Country"
+            [placeholder]="'Enter city'"
+            [data]="cities"
+            [settings]="dropdownSettings"
+            formControlName="city">
+        </ng-multiselect-dropdown>
   </div>
 
   <div class="col-md-12 form-group" 
@@ -127,10 +134,9 @@
         'has-error' : personalInfoForm.controls.address.invalid && (personalInfoForm.controls.address.dirty || personalInfoForm.controls.address.touched),
         'has-success' : personalInfoForm.controls.address.valid
           }">
-      <label class="control-label" class="mandatory">City </label>
-      <input type="text"  class="form-control" formControlName="city" placeholder="Enter city">
+      <label class="control-label" class="mandatory">Pin Code</label>
+      <input type="text"  class="form-control" formControlName="pincode" placeholder="Enter pin code">
   </div>
-
 
   <div class="col-md-12 form-group" 
       [ngClass] = "{

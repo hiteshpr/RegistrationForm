@@ -7,8 +7,12 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { HttpClientModule } from '@angular/common/http'; 
 
-
+import { RestService } from './services/rest.service';
+import { FooterComponent } from './components/ui/footer/footer.component';
+import { HeaderComponent } from './components/ui/header/header.component';
+import { LayoutComponent } from './components/ui/layout/layout.component';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
 import { PassportInfoComponent } from './components/passport-info/passport-info.component';
 import { EducationInfoComponent } from './components/education-info/education-info.component';
@@ -22,6 +26,9 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
+    FooterComponent,
+    HeaderComponent,
+    LayoutComponent,
     PersonalInfoComponent,
     PassportInfoComponent,
     EducationInfoComponent,
@@ -35,13 +42,14 @@ import { SignupComponent } from './components/auth/signup/signup.component';
     BrowserModule,
     NgbModule.forRoot(),
     NgMultiSelectDropDownModule.forRoot(),
+    HttpClientModule,
     FormsModule,
     NgxSpinnerModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule
   ],
-  providers: [LoginService],
+  providers: [LoginService, RestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

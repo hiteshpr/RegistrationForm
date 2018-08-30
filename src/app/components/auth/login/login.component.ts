@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { NgxSpinnerService } from 'ngx-spinner';
 import {Md5} from 'ts-md5/dist/md5';
 import { LoginService } from '../../../services/login.service';
+import { RestService } from './../../../services/rest.service';
 
 @Component({
   selector: 'app-login',
@@ -22,24 +23,24 @@ export class LoginComponent implements OnInit {
     password : new FormControl('', [Validators.required])
   })
 
-  constructor(private router : Router, private spinner: NgxSpinnerService, private login: LoginService) { }
+  constructor(private router : Router, private spinner: NgxSpinnerService, private login: LoginService, private rest: RestService) { }
 
   ngOnInit() {
   }
 
   getFormValue(){
   
-    this.loginForm.value.password = Md5.hashStr(this.loginForm.value.password);
-    console.log(this.loginForm.value);
-
-    this.spinner.show();
+    const data = {"loginId": this.loginForm.value.email, "password": this.loginForm.value.password } ;
     
-    setTimeout(() => {
-      
-        this.spinner.hide();
-        this.login.state = true;
-        this.router.navigate(['/personalInfo']);
-    }, 5000);
+    console.log(data);
+
+    this.rest.loginUser(data).subscribe((data) => {
+      console.log('success', data);
+    },
+    (data) => {
+      console.log('error', data);
+    }); 
+
 
   }
 
