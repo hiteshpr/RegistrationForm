@@ -8,7 +8,7 @@ import { Observable, Subject } from 'rxjs';
 
 export class RestService {
 
-  base_url = "http://dev.applytea.flautatechnologies.co.in/api/v1/";
+  base_url = "http://www.flautatechnologies.co.in/tea-app/api/v1/";
 
   constructor(private http: HttpClient) { }
 
