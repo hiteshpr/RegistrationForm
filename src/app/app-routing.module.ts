@@ -8,6 +8,7 @@ import { ServiceInfoComponent } from './components/pages/service-info/service-in
 import { DocumentsInfoComponent } from './components/pages/documents-info/documents-info.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
+import { NotFoundComponent } from './components/auth/not-found/not-found.component';
 
 const routes: Routes = [
     { 
@@ -21,7 +22,7 @@ const routes: Routes = [
       path : 'register', component: SignupComponent
     },
     { 
-      path : '',
+      path : 'pages',
       component: PagesComponent,
       children: [
         {path: '', redirectTo: 'personalInfo', pathMatch: 'full'}, 
@@ -32,6 +33,12 @@ const routes: Routes = [
         { path : 'documentsInfo', component: DocumentsInfoComponent },
       ]
     },
+    {
+      path: 'not-found',  component: NotFoundComponent
+    },
+    {
+      path : "**", redirectTo: 'not-found', pathMatch: 'full'
+    }
 ];
 
 @NgModule({

@@ -23,6 +23,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { LoginService } from './services/login.service';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { PagesComponent } from './components/pages/pages.component';
+import { NotFoundComponent } from './components/auth/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PagesComponent } from './components/pages/pages.component';
     AuthComponent,
     LoginComponent,
     SignupComponent,
-    PagesComponent
+    PagesComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

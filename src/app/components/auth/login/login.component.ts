@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     
       console.log('success', data);
       this.spinner.hide();
-      this.router.navigate(['/personalInfo']);
+      this.router.navigate(['/pages']);
 
     },
     (data) => {
