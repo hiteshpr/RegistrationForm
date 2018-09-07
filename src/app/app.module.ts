@@ -13,15 +13,16 @@ import { RestService } from './services/rest.service';
 import { FooterComponent } from './components/ui/footer/footer.component';
 import { HeaderComponent } from './components/ui/header/header.component';
 import { LayoutComponent } from './components/ui/layout/layout.component';
-import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
-import { PassportInfoComponent } from './components/passport-info/passport-info.component';
-import { EducationInfoComponent } from './components/education-info/education-info.component';
-import { ServiceInfoComponent } from './components/service-info/service-info.component';
-import { DocumentsInfoComponent } from './components/documents-info/documents-info.component';
+import { PersonalInfoComponent } from './components/pages/personal-info/personal-info.component';
+import { PassportInfoComponent } from './components/pages/passport-info/passport-info.component';
+import { EducationInfoComponent } from './components/pages/education-info/education-info.component';
+import { ServiceInfoComponent } from './components/pages/service-info/service-info.component';
+import { DocumentsInfoComponent } from './components/pages/documents-info/documents-info.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { LoginService } from './services/login.service';
 import { SignupComponent } from './components/auth/signup/signup.component';
+import { PagesComponent } from './components/pages/pages.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SignupComponent } from './components/auth/signup/signup.component';
     DocumentsInfoComponent,
     AuthComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
